@@ -1,4 +1,9 @@
 Flipper::Application.routes.draw do
+  devise_for :users
+
+  resources :flips
+
+
   resources :users
 
 

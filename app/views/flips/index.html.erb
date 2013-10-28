@@ -1,0 +1,25 @@
+<h1>Listing flips</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @flips.each do |flip| %>
+  <tr>
+    <td><%= flip.body %></td>
+    <td><%= flip.user_id %></td>
+    <td><%= link_to 'Show', flip %></td>
+    <td><%= link_to 'Edit', edit_flip_path(flip) %></td>
+    <td><%= link_to 'Destroy', flip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Flip', new_flip_path %>

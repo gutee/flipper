@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @flip.body %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @flip.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_flip_path(@flip) %> |
+<%= link_to 'Back', flips_path %>

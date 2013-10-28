@@ -35,7 +35,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @user.email = "tuvieja"
   end
 
   # POST /users
