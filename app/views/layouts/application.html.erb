@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% unless current_user.nil? %>
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<% end %>
+
 
 <%= yield %>
 

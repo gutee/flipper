@@ -13,7 +13,7 @@ class FlipsController < ApplicationController
   # GET /flips/1
   # GET /flips/1.json
   def show
-    @flip = Flip.find(params[:id])
+    @flip = Flip.find(current_user)
 
     respond_to do |format|
       format.html # show.html.erb
