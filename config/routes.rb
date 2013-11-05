@@ -1,4 +1,7 @@
 Flipper::Application.routes.draw do
+
+  match 'users/follow' => 'users#follow'
+
   resources :friendships
 
 
@@ -8,6 +11,8 @@ Flipper::Application.routes.draw do
 
 
   resources :users
+
+
 
 
   # The priority is based upon order of creation:

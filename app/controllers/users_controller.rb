@@ -81,4 +81,18 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def follow
+    friendship = Friendship.new()
+    friendship.follower_id = current_user.id
+    friendship.user_id = params[:id]
+    respond_to do |format|
+      if friendship.save
+        format.html { redirect_to users_path, notice: 'you are now following ' + friendship.user.nickname }
+        format.json { head :no_content }
+      end
+    end
+
+  end
 end

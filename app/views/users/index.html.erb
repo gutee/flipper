@@ -1,5 +1,15 @@
 <h1>Listing users</h1>
 
+
+<div id="page">
+  <% if flash[:alert] %>
+      <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+      <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+
 <table>
   <tr>
     <th>Nickname</th>
@@ -16,7 +26,11 @@
     <td><%= user.email %></td>
     <td><%= user.password %></td>
     <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Follow', user %></td>
+    <% if Friendship.where("user_id = ? and follower_id = ?", user.id, current_user.id).empty? %>
+        <td><%= link_to 'Follow', users_follow_path(:id =>user.id) %></td>
+    <% else %>
+        <td><%= link_to 'UnFollow', users_follow_path(:id =>user.id) %></td>
+  <% end %>
 
   </tr>
 <% end %>
